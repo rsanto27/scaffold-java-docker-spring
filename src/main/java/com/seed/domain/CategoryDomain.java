@@ -1,4 +1,4 @@
-package com.seed.model;
+package com.seed.domain;
 
 import java.io.Serializable;
 
@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "category")
-public class CategoryModel implements Serializable {
+public class CategoryDomain implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -19,10 +19,10 @@ public class CategoryModel implements Serializable {
 	private Integer id;
 	private String name;
 	
-	public CategoryModel() {	
+	public CategoryDomain() {	
 	}
 	
-	public CategoryModel(Integer id, String name) {
+	public CategoryDomain(Integer id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -60,7 +60,7 @@ public class CategoryModel implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CategoryModel other = (CategoryModel) obj;
+		CategoryDomain other = (CategoryDomain) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -68,9 +68,5 @@ public class CategoryModel implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
 
 }
