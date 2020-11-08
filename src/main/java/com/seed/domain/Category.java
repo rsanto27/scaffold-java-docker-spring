@@ -1,16 +1,19 @@
 package com.seed.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "category")
-public class CategoryDomain implements Serializable {
+public class Category implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -19,10 +22,13 @@ public class CategoryDomain implements Serializable {
 	private Integer id;
 	private String name;
 	
-	public CategoryDomain() {	
+	@ManyToMany(mappedBy = "categories")
+	private List<Product> products = new ArrayList<Product>();
+	
+	public Category() {	
 	}
 	
-	public CategoryDomain(Integer id, String name) {
+	public Category(Integer id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -44,6 +50,14 @@ public class CategoryDomain implements Serializable {
 		this.name = name;
 	}
 
+	public List<Product> getProducts() {
+		return products;
+	}
+	
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -60,7 +74,7 @@ public class CategoryDomain implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CategoryDomain other = (CategoryDomain) obj;
+		Category other = (Category) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -68,5 +82,6 @@ public class CategoryDomain implements Serializable {
 			return false;
 		return true;
 	}
+
 
 }
