@@ -7,12 +7,17 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.seed.domain.Address;
 import com.seed.domain.Category;
 import com.seed.domain.City;
+import com.seed.domain.Client;
 import com.seed.domain.Product;
 import com.seed.domain.State;
+import com.seed.domain.enums.ClientType;
+import com.seed.repositories.AddressRepository;
 import com.seed.repositories.CategoryRepository;
 import com.seed.repositories.CityRepository;
+import com.seed.repositories.ClientRepository;
 import com.seed.repositories.ProductRepository;
 import com.seed.repositories.StateRepository;
 
@@ -27,6 +32,10 @@ public class SeedJavaSpringbootApplication implements CommandLineRunner{
 	private StateRepository stateRepository;
 	@Autowired
 	private CityRepository cityRepository;
+	@Autowired
+	private ClientRepository clientRepository;
+	@Autowired
+	private AddressRepository addressRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SeedJavaSpringbootApplication.class, args);
@@ -51,10 +60,10 @@ public class SeedJavaSpringbootApplication implements CommandLineRunner{
 		categoryRepository.saveAll(Arrays.asList(cat1, cat2));
 		productRepository.saveAll(Arrays.asList(p1, p2, p3));
 
-		State sta1 = new State(null, "Minas Gerais");
+		State sta1 = new State(null, "New York");
 		State sta2 = new State(null, "São Paulo");
 		
-		City cit1 = new City(null, "Uberlândia", sta1);
+		City cit1 = new City(null, "Syracuse", sta1);
 		City cit2 = new City(null, "São Paulo", sta2);
 		City cit3 = new City(null, "Campinas", sta2);
 		
@@ -63,6 +72,25 @@ public class SeedJavaSpringbootApplication implements CommandLineRunner{
 		
 		stateRepository.saveAll(Arrays.asList(sta1, sta2));
 		cityRepository.saveAll(Arrays.asList(cit1, cit2, cit3));
+		
+		Client cli1 = new Client(null, "Rodrigo C", "rodrigo@gmail.com", 
+				"45911653028", ClientType.PHYSICAL_PERSON);
+		cli1.getPhones().addAll(Arrays.asList("988439659"));
+		
+		Address a1 = new Address(null, "Fulano Avenue", "666", "near the river", "Grant Village", "2598", cli1, cit1);
+		Address a2 = new Address(null, "Fulano Avenue", "666", "near the river", "Grant Village2", "2596", cli1, cit2);
+		
+		cli1.getAddresses().addAll(Arrays.asList(a1, a2));
+		
+		clientRepository.saveAll(Arrays.asList(cli1));
+		addressRepository.saveAll(Arrays.asList(a1, a2));
+		
+//		Client cli2 = new Client(null, "Rodrigo C", "rodrigo@gmail.com", 
+//				"45911653028", ClientType.PHYSICAL_PERSON);
+//		cli2.getPhones().addAll(Arrays.asList("988439659"));
+				
+//				411.966.260-81
+//				758.431.900-99
 		
 	}
 
