@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "address")
 public class Address implements Serializable {
@@ -26,6 +28,7 @@ public class Address implements Serializable {
 	private String zipCode;
 	@ManyToOne
 	@JoinColumn(name = "client_id")
+	@JsonBackReference
 	private Client client;
 	@ManyToOne
 	@JoinColumn(name = "city_id")
