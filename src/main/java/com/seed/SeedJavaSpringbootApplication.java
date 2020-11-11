@@ -15,6 +15,7 @@ import com.seed.domain.Category;
 import com.seed.domain.City;
 import com.seed.domain.Client;
 import com.seed.domain.Order;
+import com.seed.domain.OrderItem;
 import com.seed.domain.Payment;
 import com.seed.domain.Product;
 import com.seed.domain.State;
@@ -24,6 +25,7 @@ import com.seed.repositories.AddressRepository;
 import com.seed.repositories.CategoryRepository;
 import com.seed.repositories.CityRepository;
 import com.seed.repositories.ClientRepository;
+import com.seed.repositories.OrderItemRepository;
 import com.seed.repositories.OrderRepository;
 import com.seed.repositories.PaymentRepository;
 import com.seed.repositories.ProductRepository;
@@ -48,6 +50,8 @@ public class SeedJavaSpringbootApplication implements CommandLineRunner{
 	private OrderRepository orderRepository;
 	@Autowired
 	private PaymentRepository paymentRepository;
+	@Autowired
+	private OrderItemRepository orderItemRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SeedJavaSpringbootApplication.class, args);
@@ -112,7 +116,18 @@ public class SeedJavaSpringbootApplication implements CommandLineRunner{
 		orderRepository.saveAll(Arrays.asList(order1, order2));
 		paymentRepository.saveAll(Arrays.asList(pay1, pay2));
 		
-
+		OrderItem oi1 = new OrderItem(order1, p1, 0.00, 1, 2000.00);
+		OrderItem oi2 = new OrderItem(order1, p3, 0.00, 2, 80.00);
+		OrderItem oi3 = new OrderItem(order2, p2, 100.00, 1, 800.00);
+		
+		order1.getItems().addAll(Arrays.asList(oi1, oi2));
+		order2.getItems().addAll(Arrays.asList(oi3));
+		
+		p1.getItems().addAll(Arrays.asList(oi1));
+		p2.getItems().addAll(Arrays.asList(oi3));
+		p3.getItems().addAll(Arrays.asList(oi2));
+		
+		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3));
 		
 	}
 
