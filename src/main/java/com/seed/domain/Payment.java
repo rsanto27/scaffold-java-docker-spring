@@ -16,13 +16,13 @@ import com.seed.domain.enums.PaymentType;
 @Entity
 @Table(name = "payment")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Payment implements Serializable {
+public abstract class Payment implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	private Integer id;
-	private PaymentType paymentType;
+	private Integer paymentType;
 	
 	@OneToOne
 	@JoinColumn(name = "order_id")
@@ -36,7 +36,7 @@ public class Payment implements Serializable {
 	public Payment(Integer id, PaymentType paymentType, Order order) {
 		super();
 		this.id = id;
-		this.paymentType = paymentType;
+		this.paymentType = paymentType.getCode();
 		this.order = order;
 	}
 
@@ -49,11 +49,11 @@ public class Payment implements Serializable {
 	}
 
 	public PaymentType getPaymentType() {
-		return paymentType;
+		return PaymentType.toEnum(paymentType);
 	}
 
 	public void setPaymentType(PaymentType paymentType) {
-		this.paymentType = paymentType;
+		this.paymentType = paymentType.getCode();
 	}
 
 	public Order getOrder() {
