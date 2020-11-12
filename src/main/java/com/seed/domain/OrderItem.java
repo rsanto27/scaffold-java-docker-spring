@@ -4,11 +4,14 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "order_item")
 public class OrderItem {
 	
 	@EmbeddedId
+	@JsonIgnore
 	private ItemOrderComposedPK id = new ItemOrderComposedPK();
 
 	private Double discount;
@@ -28,6 +31,7 @@ public class OrderItem {
 		this.price = price;
 	}
 	
+	@JsonIgnore
 	public Order getOrder() {
 		return this.id.getOrder();
 	}
