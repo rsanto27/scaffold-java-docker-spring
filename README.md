@@ -1,2 +1,2 @@
 # seed-java-springboot
-A starter project with java, docker and spring
+This is a seed. In this seed we use
