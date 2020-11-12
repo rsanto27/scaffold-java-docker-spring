@@ -1,5 +1,5 @@
 # seed-java-springboot.
-This is a seed. In this seed we use spring boot to initiate the technologies. The jdk used was the 11 LTS. Here we will describe how to mount the ambient.
+This is a seed, studded from ![Udemy](https://www.udemy.com/course/spring-boot-ionic/). In this seed we use spring boot to initiate the technologies. The jdk used was the 11 LTS. Here we will describe how to mount the ambient.
 
 1. Install java 11 LTS.
 2. Use the update alternatives from linux to set the java11 the default installation, or set this inside eclipse.
