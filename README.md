@@ -6,7 +6,7 @@ This is a seed, studded from ![Udemy](https://www.udemy.com/course/spring-boot-i
 3. Download the Eclipse IDE.
 4. Inside Eclipse, install from Eclipse Market place the **Spring Tools 4** by VMware.
 5. Clone the project from repository.
-6. Import the project like a spring project.
+6. Import the project like a maven.
 7. Run the class `SeedJavaSpringbootApplication` like a **spring boot app**.
 8. the server will respond at localhost:8080. If you already have the 8080 door used. you must change it on `Application.properties` by the property `server.port`
 
