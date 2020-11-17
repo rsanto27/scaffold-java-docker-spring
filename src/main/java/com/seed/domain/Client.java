@@ -18,6 +18,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.seed.domain.enums.ClientType;
+import com.seed.dto.ClientDTO;
 
 @Entity
 @Table(name = "client")
@@ -53,6 +54,15 @@ public class Client implements Serializable {
 		this.email = email;
 		this.cpfOrCnpj = cpfOrCnpj;
 		this.type = type.getCode();
+	}
+	
+	public Client(ClientDTO clientDTO) {
+		super();
+		this.id = clientDTO.getId();
+		this.name = clientDTO.getName();
+		this.email = clientDTO.getEmail();
+		this.cpfOrCnpj = null;
+		this.type = null;
 	}
 
 	public Integer getId() {

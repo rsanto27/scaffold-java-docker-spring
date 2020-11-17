@@ -11,7 +11,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.seed.domain.Category;
-import com.seed.dto.CategoryDTO;
 import com.seed.repositories.CategoryRepository;
 import com.seed.services.exceptions.DataIntegrityException;
 import com.seed.services.exceptions.ObjectNotFoundException;
@@ -30,7 +29,7 @@ public class CategoryService {
 	
 	public Category insert(Category category) {
 		category.setId(null);
-		return  catRepo.save(category);
+		return catRepo.save(category);
 	}
 	
 	public Category update(Category category) {
