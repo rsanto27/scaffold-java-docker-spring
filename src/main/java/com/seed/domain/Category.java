@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.seed.dto.CategoryDTO;
+
 @Entity
 @Table(name = "category")
 public class Category implements Serializable {
@@ -32,6 +34,11 @@ public class Category implements Serializable {
 		super();
 		this.id = id;
 		this.name = name;
+	}
+	
+	public Category(CategoryDTO catDTO) {
+		this.id = catDTO.getId();
+		this.name = catDTO.getName();
 	}
 
 	public Integer getId() {

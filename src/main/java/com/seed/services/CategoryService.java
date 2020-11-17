@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.seed.domain.Category;
+import com.seed.dto.CategoryDTO;
 import com.seed.repositories.CategoryRepository;
 import com.seed.services.exceptions.DataIntegrityException;
 import com.seed.services.exceptions.ObjectNotFoundException;
