@@ -14,7 +14,7 @@ This is a seed, studded from [Udemy](https://www.udemy.com/course/spring-boot-io
 [Model Aproach](https://github.com/rsanto27/seed-java-springboot/wiki/Data-Model)
 
 ## About structure layers
-[Model Aproach](https://github.com/rsanto27/seed-java-springboot/wiki/Structure-Layers)
+[Structure](https://github.com/rsanto27/seed-java-springboot/wiki/Structure-Layers)
 
 
 
