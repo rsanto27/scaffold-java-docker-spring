@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.seed.domain.Client;
 import com.seed.repositories.ClientRepository;
@@ -27,6 +28,7 @@ public class ClientService {
 				"Not found. Id: " + id + ", Type: " + Client.class.getName()));
 	}
 
+	@Transactional
 	public Client insert(Client client) {
 		client.setId(null);
 		return clientRepo.save(client);

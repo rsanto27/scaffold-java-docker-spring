@@ -20,6 +20,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.seed.domain.Client;
 import com.seed.dto.ClientDTO;
+import com.seed.dto.ClientWithAddressDTO;
 import com.seed.services.ClientService;
 
 @RestController
@@ -53,13 +54,13 @@ public class ClientResource {
 		return ResponseEntity.ok().body(clientsDTOPage);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> insert(@Valid @RequestBody ClientDTO clientDTO){
-		Client client = cliService.insert(new Client(clientDTO));
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("/{id}").buildAndExpand(client.getId()).toUri();
-		return ResponseEntity.created(uri).build();
-	}
+//	@RequestMapping(method = RequestMethod.POST)
+//	public ResponseEntity<Void> insert(@Valid @RequestBody ClientWithAddressDTO clientAddressDTO){
+//		Client client = cliService.insert(new Client(clientDTO));
+//		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+//				.path("/{id}").buildAndExpand(client.getId()).toUri();
+//		return ResponseEntity.created(uri).build();
+//	}
 	
 	@RequestMapping(method = RequestMethod.PUT, value = "/{id}")
 	public ResponseEntity<Void> update(@Valid @RequestBody ClientDTO clientDTO, @PathVariable Integer id){
