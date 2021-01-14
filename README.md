@@ -16,6 +16,11 @@ This is a seed, studded from [Udemy](https://www.udemy.com/course/spring-boot-io
 ## About structure layers
 [Structure](https://github.com/rsanto27/seed-java-springboot/wiki/Structure-Layers)
 
+## About Security
+
+1. Dependencies: `spring-boot-starter-security` and `jjwt` insite pom.xml.
+2. Create a class named by `com.seed.config.SecurityConfig`
+
 
 
 
